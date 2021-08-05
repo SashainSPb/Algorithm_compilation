@@ -4,19 +4,20 @@ function solution(nums) {
     // 제곱근을 활용한 소수판별식
     const isPrime = function(n) {
 
-        if(n<=1) {
+        if(n <= 1) {
             return false;    
         }
 
-        if(n % 2 === 0) {
+        if(n !== 2 && n % 2 === 0) {
             return false;
-        }
+        } // 2를 제외한 나머지 짝수는 다 제외
         
         for(let i = 3; i <= Math.sqrt(n); i++) {
-            if(n % 1 === 0) {
+            if(n % i === 0) {
                 return false;
             }
-        }
+        } // n이 홀수인 경우 sqrt(n)까지 나눠서 나눠떨어지는지 여부 체크
+        
         return true; 
     }
     
