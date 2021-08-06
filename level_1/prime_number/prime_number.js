@@ -21,18 +21,22 @@ function solution(nums) {
         return true; 
     }
     
-    const getCombinations = function(arr, number) {
+    const getCombinations = function(arr, selectNumber) {
 
-    let result = [];
-    
-    if(n === 1) {
-        return arr.map((ele) => [ele]);
-    }
-    
-    arr.forEach((fixed, index, origin) => { 
+        let result = [];
         
+        if(selectNumber === 1) {
+            return arr.map((ele) => [ele]);
+        }
+        
+        arr.forEach((fixed, index, origin) => { 
+            const rest = origin.slice(index+1);
+            const combinations = getCombinations(rest, selectNumber-1);
+            const attached = combinations.map((combination) => [fixed, ...combinations]);
+            result.push(...attached);
 
-    })
+            return result;
+        })
 
 
     }
