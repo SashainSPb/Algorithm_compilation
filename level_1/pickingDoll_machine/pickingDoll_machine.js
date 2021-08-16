@@ -15,11 +15,11 @@ function solution(board, moves) {
         }
     } // bucket => 여기서 바로 비교해주자!
  
-//     for (let i = 0; i < bucket.length; i ++) {
-//         if(bucket[i] === bucket[i+1]) {
-//             answer = answer + 2;
-//         }
-//     }
+    for (let i = 0; i < bucket.length; i ++) {
+        if(bucket[i] === bucket[i+1]) {
+            answer = answer + 2;
+        }
+    }
        
     return bucket;
 }
