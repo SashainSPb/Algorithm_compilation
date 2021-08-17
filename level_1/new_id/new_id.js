@@ -2,20 +2,19 @@ function solution(new_id) {
     let answer = '';
     
     
-    let a = new_id.toLowerCase()
+    let a = new_id.toLowerCase() 
     let b = a.replace(/[^\w-._]+/g, '');
     let c = b.replace(/[.]{2,}/g, '.');
     
     if(c[0] === '.'){
-        c[0] === '';
+        c = c.slice(1, c.length-1)
     }
     if(c[c.length-1] === '.') {
-        c[c.length-1] = '';    
+        c = c.slice(0, c.length-1)    
     }
+    // 마침표가 처음이나 끝에 위치한다면 제거 
     
-    if(c[c.length-1] === '.') {
-        c[c.length-1] = '';    
-    }
+    console.log("c: ", c)
     
     if(c.length === 0 ) {
         c = 'a';
@@ -26,11 +25,13 @@ function solution(new_id) {
     }
     
     if(c[c.length-1] === '.') {
-        c[c.length-1] = '';    
+        c = c.slice(0, c.length-1)    
     }
     
     if(c.length <= 2) {
-        c = c.repeat(3);
+        for(let i = 0; i < 3; i ++) {
+            c = c + c[0];
+        }
     }
     
     return c;
@@ -45,8 +46,9 @@ function solution(new_id) {
 5-2. 아이디가 16자 이상일 경우, 16자문자 이상부터 모두 제거
 5-3. 4번 프로세스 반복
 5-4. 아이디가 길이 2자 이하라면 new_id 문자를 길이가 3이 될때까지 반복해서 끝에 붙여주자.
-6. 아이디를 리턴한다.  
+6. 최종 아이디를 리턴한다.  
 
 let reg = /^[a-z0-9]$/
+
 
 */
