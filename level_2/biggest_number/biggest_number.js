@@ -3,7 +3,7 @@ function solution(numbers) {
     return answer[0] === "0" ? "0" : answer;
 }
 
-/*
+/* greedy 알고리즘으로 접근해보자. 
 1. 정수가 담긴 배열 numbers를 전달받는다.
 2. map을 써서 요소 type을 string으로 변환하자. 
 3. 문자열 요소 두 개를 더해준다. 
