@@ -1,26 +1,6 @@
 function solution(priorities, location1) {
     let answer = 0;
-    priorities.splice(location1,1,String(priorities[location1])) // 원본배열을 건들여주자
-    
-    console.log(" stringed priorities", priorities)
-    
-    for(let i= 0; i < priorities.length; i++ ) {
-       let a = priorities.filter(ele => ele > priorities[i])
-        
-        if(!a) {
-            continue; // 뽑힌 요소보다 큰 나머지 요소가 존재하지 않는다면 
-        } else {
-            let element = priorities.pop();
-            priorities.push(element);
-        } 
-    }
-     console.log("completed priorities: ", priorities)
-    
-    for(let i= 0; i < priorities.length; i++ ) {
-        if(typeof priorities[i] === "string") {
-            return i;
-        } 
-    }
+    return answer;
 }
 
 /*
