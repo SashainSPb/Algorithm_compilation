@@ -1,33 +1,21 @@
 function solution(citations) {
-    var answer = 0;
-    citations.sort((a,b) => a-b)
-    answer = getMedian(citations);
-    return answer;
-}
+  let result = 0;
+  citations.sort((a, b) => b-a); // [6,5,3,1,0]
 
-function getMedian(array) {
-  if (array.length == 0) return NaN; // 빈 배열은 에러 반환(NaN은 숫자가 아니라는 의미임)
-  var center = parseInt(array.length / 2); // 요소 개수의 절반값 구하기
-
-  if (array.length % 2 == 1) { // 요소 개수가 홀수면
-    return array[center]; // 홀수 개수인 배열에서는 중간 요소를 그대로 반환
-  } else {
-    return (array[center - 1] + array[center]) / 2.0; // 짝수 개 요소는, 중간 두 수의 평균 반환
+  for (let i = 0; i < citations.length; i++) {
+      if (citations[i] < i + 1) { // i=3, citations[3] = 1
+        return (result = i); // 배열 내 요소가 idx를 넘는 순간 그 전 단계의 i를 리턴하자.
+      }
   }
+
+return result > 0 ? result : citations.length; // result가 0보다 크다면 상기 i의 값을 리턴, 0이라면 길이만큼 리턴
 }
 
 
 /*
-1. 논문의 인용 횟수를 담은 배열 citations을 받는다.
-2. 오름차순 정렬 수행
-3. 요소 하나씩 순회해주자
-4. 요소보다 큰 숫자를 
-
-2. [0, 1, 5, 6]
-3. h가 1일때 
-4.
-5.
-getMedian()
-
-
+1. 인용된 논문 숫자를 요소로 갖는 배열 citation을 받는다.
+2. 많이 인용된 논문부터 내림차순으로 정렬해주자.
+3. 등록된 논문 수를 오름차순으로 정렬한 후 2번과 비교해주자.
+4. 인용된 횟수가 등록된 논문의 해당 순번보다 작을 경우, 그 직전의 순번이 H-index이다.
+5. [10,11,12]과 같이 모든 논문의 인용된 횟수가 논문의 순번보다 클 경우, 해당 논문의 개수가 H-index의 최대값이 된다
 */
