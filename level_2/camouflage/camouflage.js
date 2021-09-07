@@ -10,9 +10,8 @@ function solution(clothes) {
     }
     
         answer = Object.values(clothesList).reduce((acc,cur)=> {
-            acc = acc * (cur + 1);
-            return acc;
-        })   
+            return acc * (cur + 1);
+        },1) // 초기값(= acc) 1로 세팅
         
     return answer-1;
 }
