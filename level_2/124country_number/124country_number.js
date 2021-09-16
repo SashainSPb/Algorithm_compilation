@@ -1,10 +1,7 @@
 function solution(n) {
     let answer = '';
-    
-    let switchedNumber = n.toString(3);
-    console.log(switchedNumber)
-    
-    // return answer;
+
+    return answer;
 }
 
 /*
